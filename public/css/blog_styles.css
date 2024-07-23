@@ -1,0 +1,261 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #FD6569;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.overlay {
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+/* Blogs section */
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin-top: 25vh; /* Added margin to create space below the fixed header */
+    gap: 20px; /* Adds space between items */
+}
+
+.blog_item {
+    width: auto;
+    max-width: 400px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    flex: 1 1 calc(33% - 40px); /* Three items per row with space around them */
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.blog_item:hover {
+    transform: translateY(-5px);
+}
+
+.blog_item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.blog_item p {
+    color: #777;
+}
+
+button {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin: 10px 5px 0 0;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.delete-blog {
+    background-color: #dc3545;
+}
+
+button.delete-blog:hover {
+    background-color: #c82333;
+}
+
+/* Blog Add Form Section */
+.blog-add-section {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blog-add-section h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #FD6569;
+    text-align: center;
+}
+
+.blog-add-section label {
+    color: #FD6569;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.blog-add-section input[type="text"],
+.blog-add-section textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add-button {
+    display: inline-block;
+    background-color: #FD6569;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cancel-button {
+    display: inline-block;
+    background-color: #FD6569;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.blog-add-section button[type="submit"]:hover,
+.blog-add-section button#button:hover {
+    opacity: 0.9;
+}
+
+button.Add-blog {
+    color: black;
+    background-color: #FD6569;
+    border-radius: 100%;
+    padding: 20px 30px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    font-size: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+button.Add-blog:hover {
+    background-color: #45a049;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #FD6569;
+}
+
+.modal-content p {
+    color: #333;
+}
+
+.close-modal,
+.close-modal-button {
+    background-color: #FD6569;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.close-modal:hover,
+.close-modal-button:hover {
+    background-color: #e84a50;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-modal-button {
+    display: block;
+    margin: 20px auto 0;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .blog-add-section {
+        padding: 15px;
+        width: 90%;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VICKY BLOGS</title>
+    <link rel="shortcut icon" href="assets/blog-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/blog_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+    <h1>Welcome to Blogs World</h1>
+    <p>"Welcome to Vicky's Blog, where we share insightful articles, helpful tips, and engaging stories on a wide range of topics. 
+        Stay tuned for updates and join our community of passionate readers!"</p>
+    </header>
+    <div class="overlay"></div>
+
+      <!-- Modal for Read More -->
+      <div class="modal" id="read-more-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Blog Title</h2>
+            <p id="modal-shortnotes">Short Notes</p>
+            <div id="modal-content">Blog Content</div>
+            <button class="close-modal-button">Close</button>
+        </div>
+    </div>
+
+    <!--Blog add form -->
+    <div class="blogs" id="blogs">
+        <% blogs.forEach(item =>{ %>
+            <div class="blog_item" data-id="<%= item._id %>" data-title="<%= item.title %>" data-shortnotes="<%= item.shortnotes %>" data-content="<%= item.content %>">
+                <h3> <%= item.title %></h3>
+                <p> <%= item.shortnotes %></p>
+                <button class="read-more">Read More</button>
+                <form action="/blogs/<%= item._id %>?_method=DELETE " method="post" class="delete-form">
+                <button class="delete-blog" type="submit">Delete</button>
+            </form>
+            </div>
+        <% }); %>
+            
+        </div>
+    <div class="blog-add-section">
+        <h1 class="heading" id="heading">Add a Awsome Blogs</h1>
+        <form action="/blogAddForm" method="post">
+            <label for="blog-title" class="label">Title</label>
+            <input type="text" name="blogTitle" id="blog-title" class="blog-title" required>
+            <label for="short-notes">Short Notes</label>
+            <input type="text" name="shortNotes" id="short-notes" class="short-notes" required>
+            <label for="blog-content">Content</label>
+            <textarea id="blog-content" class="blog-content" name="blogContent"></textarea>
+            <button id="add_button" class="add-button" type="submit">Submit</button>
+            <button onclick="" id="cancel-button" class="cancel-button">Cancel</button>
+        </form>
+    </div>
+    <button class="Add-blog" id="Add-blog">+</button>
+    <script src="/js/blog_Script.js"></script>
+</body>
+</html>
