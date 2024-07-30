@@ -15,7 +15,7 @@ dotenv.config()
 const PORT = process.env.PORT || 3030;
 const mongoURI = process.env.mongoConnect;
 
-//in-build middleware of frontend and backend
+//build-in middleware of frontend and backend
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
